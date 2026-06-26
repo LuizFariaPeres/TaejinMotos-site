@@ -1,0 +1,9 @@
+.Swipperconteiner{
+    max-width: 800px;
+
+}
+img{
+    min-width: 100%;
+    width: 1005;
+    border: 2px solid black ;
+}
