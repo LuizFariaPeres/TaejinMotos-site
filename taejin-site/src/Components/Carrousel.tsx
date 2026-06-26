@@ -22,7 +22,7 @@ export default function Carrousel(){
             >
                 {slides.map((item)=>(
                     <SwiperSlide key={item.id}>
-                        <img src={item.image} alt={item.title}></img>
+                        <img className="swiperImg" src={item.image} alt={item.title}></img>
                     </SwiperSlide>
                 ))}
 

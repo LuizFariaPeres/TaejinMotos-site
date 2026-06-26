@@ -2,8 +2,8 @@
     max-width: 800px;
 
 }
-img{
+.swiperImg{
     min-width: 100%;
-    width: 1005;
+    width: 100%;
     border: 2px solid black ;
 }

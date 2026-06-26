@@ -1,3 +1,11 @@
-.HeaderContainer{
+.Header{
     display: flex;
+    width: 100%;
+    height: 7rem;
+    justify-content: space-around;
+    align-items: center;
+}
+.Link{
+    text-decoration: none;
+    color: gray;
 }
