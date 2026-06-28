@@ -1,14 +1,13 @@
 import { Link } from "react-router-dom";
 
 //css
-import '../assets/Css/Header.css'
 
 export default function Header(){
     return(
-        <div className="Header">
-            <Link className="Link" to='/'>Home</Link>
-            <Link className="Link" to='/produts'>Produts</Link>
-            <Link className="Link" to='/sale'>Sale</Link>
+        <div className="flex w-full h-20 justify-evenly items-center bg-[#fff]">
+            <Link className="text-[#888787] hover:text-[#6a1515]" to='/'>Home</Link>
+            <Link className="text-[#888787]" to='/produts'>Produts</Link>
+            <Link className="text-[#888787]" to='/sale'>Sale</Link>
         </div>
     )
 }
