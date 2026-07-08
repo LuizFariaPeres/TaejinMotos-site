@@ -2,6 +2,11 @@ import Header from "../Components/Header";
 import type { Iteminfo } from "../Types/Item";
 import ItemCard from "../Components/ItemCard";
 import Footer from "../Components/Footer";
+import { useCartStore } from "../Store/useCartStore";
+
+//imagens
+import t300xConcerpt from '../assets/t300xConcerpt.png'
+import t300x from '../assets/t300x.png'
 
 //swiper modules
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -12,54 +17,23 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 
+
 export default function Home(){
 
-    const Bikes: Iteminfo [] = [
-        {
-            _id: 1,
-            title: 'T-300X',
-            model: 'T-sporting',
-            price: 13000,
-            image: 'https://placehold.co/500'
-        },
-        {
-            _id: 2,
-            title: 'T-440X',
-            model: 'T-sporting',
-            price: 20000,
-            image: 'https://placehold.co/500'
-        },
-        {
-            _id: 3,
-            title: 'T-300X',
-            model: 'T-sporting',
-            price: 13000,
-            image: 'https://placehold.co/500'
-        },
-        {
-            _id: 4,
-            title: 'T-300X',
-            model: 'T-sporting',
-            price: 13000,
-            image: 'https://placehold.co/500'
-        },
-        {
-            _id: 5,
-            title: 'T-300X',
-            model: 'T-sporting',
-            price: 13000,
-            image: 'https://placehold.co/500'
-        },            
-    ]
-        
-    
+    const motors = useCartStore((state) => (state.sporting)) 
+
+   
+    const handleAddToCart = useCartStore((state) => state.addToCart)
+
     return(
         <div className="flex flex-col w-full">
             <Header/>
-            <div className="flex flex-col w-full gap-10 bg-[#aaf5f2]">
-                <div className="flex p-5 justify-between items-center bg-[#ffff]">
-                    <button className="h-15 w-30 rounded-md bg-[#eb0000] text-[#ffffff] self-end justify-self-center">Saiba Mais</button>
-                    <img className="justify-end-safe" src="https://placehold.co/500" alt="moto" />
+            <div className="flex flex-col w-full gap-10 bg-[#858483]">
+                <div className="flex relative p-5 justify-between items-center bg-[#858483]">
+                    <p className="absolute top-[45%] left-[10%] right-[50%] text-3xl">T-300x é uma moto para quem quer esportividade e conforto</p>
+                    <button className="h-15 w-30 rounded-md bg-[#ec172e] text-[#ffffff] hover:bg-[#6b1d22] 
+                    self-end justify-self-center transition delay-75 duration-300 ease-in-out">Saiba Mais</button>
+                    <img className="justify-end-safe w-137.5 mask-x-from-90% mask-y-from-90%" src={t300x} alt="moto" />
                 </div>
                 <div className="w-screen flex px-8">
                     <Swiper
@@ -84,20 +58,19 @@ export default function Home(){
                                 slidesPerView:5,
                             }
                         }}
-                        autoplay={{delay:3000, disableOnInteraction:false}}
+                        autoplay={{delay:5000, disableOnInteraction:false}}
                         loop={true}
                     >
-                        {Bikes.map((item) =>
+                        {motors.map((item) =>
                         (
-                            <SwiperSlide key={item._id} className="flex justify-items-center">
-                                <ItemCard info={item}/>
+                            <SwiperSlide key={item._id} className="flex justify-items-center p-8">
+                                <ItemCard info={item} onClick={handleAddToCart}/>
                             </SwiperSlide>
-                            
                         ))}
                     </Swiper>
                 </div>
-                <div className="bg-indigo-700 w-full h-96">
-
+                <div className='w-full h-180 flex items-center justify-center'>
+                    <img className="w-full h-full" src={t300xConcerpt} alt="moto-concerpt" />
                 </div>
             </div>
             <Footer/>
