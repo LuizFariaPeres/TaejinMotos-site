@@ -52,7 +52,7 @@ export const useCartStore = create<CartStore>()(
     // [...state.cart, item] usa o operador spread para copiar os itens existentes e adicionar o novo no final.
     addToCart: (item: Iteminfo) => 
       set((state) => ({ 
-        cart: [...state.cart, item] 
+        cart: [...state.cart, item]
       })),
 
     // 3. Ação 'deleteFromCart': Remove um item baseado no ID recebido

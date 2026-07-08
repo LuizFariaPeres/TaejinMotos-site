@@ -17,8 +17,7 @@ export default function ItemCard({info, onClick}: Props){
             <h2>{info.title}</h2>
             <img className="w-full h-full" src={info.image} alt={info.title}/>
             <p>A partir de R$ {info.price.toFixed(2)}</p><p>{info.model}</p>
-            <button className="bg-blue-50 p-2 rounded-2xl hover:bg-[#ec172e] hover:text-white" onClick={()=>{addToCart(info)}}>Adicionar</button>
-           
+            <button className="bg-blue-50 p-2 rounded-2xl hover:bg-[#ec172e] hover:text-white" onClick={()=>{addToCart(info), alert('Item adicionado ao carrinho!')}}>Adicionar</button>
         </div>
     )
 }
